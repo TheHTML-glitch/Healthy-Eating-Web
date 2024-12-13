@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Care - Student Food Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .good {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .ok {
+            background-color: #FFEB3B;
+            color: black;
+        }
+        .bad {
+            background-color: #F44336;
+            color: white;
+        }
+        .total {
+            font-weight: bold;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function calculateWeeklyPercentage() {
+            let totalGood = 0;
+            let totalOk = 0;
+            let totalBad = 0;
+            const rows = document.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                let goodCount = 0;
+                let okCount = 0;
+                let badCount = 0;
+
+                const selectElements = row.querySelectorAll('select');
+
+                selectElements.forEach(select => {
+                    const selectedValue = select.value;
+                    if (selectedValue === 'Good') {
+                        goodCount++;
+                    } else if (selectedValue === 'Ok') {
+                        okCount++;
+                    } else if (selectedValue === 'Bad') {
+                        badCount++;
+                    }
+                });
+
+                const totalDays = selectElements.length;
+                const goodPercentage = ((goodCount / totalDays) * 100).toFixed(2);
+                const okPercentage = ((okCount / totalDays) * 100).toFixed(2);
+                const badPercentage = ((badCount / totalDays) * 100).toFixed(2);
+
+                row.querySelector('.weeklyGood').textContent = goodPercentage + "% Good";
+                row.querySelector('.weeklyOk').textContent = okPercentage + "% Ok";
+                row.querySelector('.weeklyBad').textContent = badPercentage + "% Bad";
+            });
+        }
+    </script>
+</head>
+<body>
+
+<h1>Health and Care - Student Food Tracker</h1>
+<p>Select the health status of food for each student from Monday to Friday, and click the "Calculate Weekly Percentage" button to see the weekly health report.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Weekly Good %</th>
+            <th>Weekly Ok %</th>
+            <th>Weekly Bad %</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Repeat this block for each student -->
+        <tr>
+            <td>Student 1</td>
+            <td>
+                <select>
+                    <option value="Good">Good</option>
+                    <option value="Ok">Ok</option>
+                    <option value="Bad">Bad</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option value="Good">Good</option>
+                    <option value="Ok">Ok</option>
+                    <option value="Bad">Bad</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option value="Good">Good</option>
+                    <option value="Ok">Ok</option>
+                    <option value="Bad">Bad</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option value="Good">Good</option>
+                    <option value="Ok">Ok</option>
+                    <option value="Bad">Bad</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option value="Good">Good</option>
+                    <option value="Ok">Ok</option>
+                    <option value="Bad">Bad</option>
+                </select>
+            </td>
+            <td class="weeklyGood">0% Good</td>
+            <td class="weeklyOk">0% Ok</td>
+            <td class="weeklyBad">0% Bad</td>
+        </tr>
+        <!-- Repeat block ends -->
+        <!-- Add more rows for each student (total 28 students) -->
+    </tbody>
+</table>
+
+<button class="button" onclick="calculateWeeklyPercentage()">Calculate Weekly Percentage</button>
+
+</body>
+</html>
