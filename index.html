@@ -3,61 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Diet Tracker</title>
+    <title>Weekly Diet Tracker - Healthy Eating</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #7f8c8d;
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 30px;
         }
         .week {
-            margin: 10px 0;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 1.3em;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+        select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            font-size: 1.3em;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
         }
         .result {
-            margin-top: 20px;
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+        .result ul {
+            list-style: none;
+            padding: 0;
+        }
+        .result ul li {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        .result p {
+            font-size: 1.1em;
+            color: #34495e;
+        }
+        .fact-box {
+            background-color: #eaf2f8;
+            border-left: 6px solid #3498db;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .fact-box h3 {
+            color: #3498db;
+            font-size: 1.3em;
+        }
+        .fact-box ul {
+            margin-top: 10px;
+        }
+        .fact-box li {
+            margin-left: 15px;
+            color: #7f8c8d;
+            font-size: 1em;
         }
     </style>
 </head>
 <body>
 
-    <h1>Weekly Diet Tracker</h1>
-    <p>Track your eating habits each week and get tips on how to improve!</p>
+    <div class="container">
+        <h1>Weekly Diet Tracker</h1>
+        <p>Get your eating habits each week and get detailed tips and facts on how to improve your diet!</p>
 
-    <form id="dietForm">
-        <div class="week">
-            <label for="week1">Week 1:</label>
-            <select id="week1">
-                <option value="good">Good and Healthy</option>
-                <option value="bad">Bad</option>
-            </select>
-        </div>
+        <form id="dietForm">
+            <div class="week">
+                <label for="week1">Week 1:</label>
+                <select id="week1">
+                    <option value="good">Good and Healthy</option>
+                    <option value="bad">Bad</option>
+                </select>
+            </div>
 
-        <div class="week">
-            <label for="week2">Week 2:</label>
-            <select id="week2">
-                <option value="good">Good and Healthy</option>
-                <option value="bad">Bad</option>
-            </select>
-        </div>
+            <div class="week">
+                <label for="week2">Week 2:</label>
+                <select id="week2">
+                    <option value="good">Good and Healthy</option>
+                    <option value="bad">Bad</option>
+                </select>
+            </div>
 
-        <div class="week">
-            <label for="week3">Week 3:</label>
-            <select id="week3">
-                <option value="good">Good and Healthy</option>
-                <option value="bad">Bad</option>
-            </select>
-        </div>
+            <div class="week">
+                <label for="week3">Week 3:</label>
+                <select id="week3">
+                    <option value="good">Good and Healthy</option>
+                    <option value="bad">Bad</option>
+                </select>
+            </div>
 
-        <div class="week">
-            <label for="week4">Week 4:</label>
-            <select id="week4">
-                <option value="good">Good and Healthy</option>
-                <option value="bad">Bad</option>
-            </select>
-        </div>
+            <div class="week">
+                <label for="week4">Week 4:</label>
+                <select id="week4">
+                    <option value="good">Good and Healthy</option>
+                    <option value="bad">Bad</option>
+                </select>
+            </div>
 
-        <button type="button" onclick="calculate()">Submit</button>
-    </form>
+            <button type="button" onclick="calculate()">Submit</button>
+        </form>
 
-    <div id="result" class="result"></div>
+        <div id="result" class="result"></div>
+    </div>
 
     <script>
         function calculate() {
@@ -82,16 +184,24 @@
             } else if (goodCount === 1) {
                 resultText = 'You need to make more healthy choices. Consider planning your meals better.';
             } else {
-                resultText = 'It seems like you are struggling to maintain a healthy diet. Try to incorporate more fruits, vegetables, and whole grains.';
+                resultText = 'It seems like you are struggling to mainta a healthy diet. Try to incorporate more fruits, vegetables, and whole grains.';
             }
 
-            resultText += '<p>Here are some tips for a healthier diet:</p>';
+            resultText += '<h2>Here are some tips for a healthier diet:</h2>';
             resultText += '<ul>';
             resultText += '<li>Drink plenty of water throughout the day.</li>';
             resultText += '<li>Eat a variety of fruits and vegetables daily.</li>';
             resultText += '<li>Avoid processed foods and sugary snacks.</li>';
             resultText += '<li>Try to eat more home-cooked meals with whole ingredients.</li>';
             resultText += '</ul>';
+
+            resultText += '<div class="fact-box"><h3>Die Facts & Tips:</h3>';
+            resultText += '<ul>';
+            resultText += '<li>Balanced nutrition boosts energy and mental clarity.</li>';
+            resultText += '<li>High-fiber foods like fruits, vegetables, and whole grains aid digestion and promote heart health.</li>';
+            resultText += '<li>Consuming healthy fats (like avocado, nuts, and olive oil) supports brain function.</li>';
+            resultText += '<li>Try to avoid excessive intake of red mtand processed foods that are high in sodium and unhealthy fats.</li>';
+            resultText += '</ul></div>';
 
             document.getElementById('result').innerHTML = resultText;
         }
