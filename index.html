@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Diet Tracker - Healthy Eating</title>
+    <title>Weekly Diet Tracker - Healthy Eating 🍎</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7fa;
+            background-image: url('your-background-image-url'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,7 +18,7 @@
             height: 100vh;
         }
         .container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -114,58 +116,72 @@
             color: #7f8c8d;
             font-size: 1em;
         }
+        .quiz-btn, .health-test-btn {
+            background-color: #2ecc71;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .quiz-btn:hover, .health-test-btn:hover {
+            background-color: #27ae60;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Weekly Diet Tracker</h1>
-        <p>Get your eating habits each week and get detailed tips and facts on how to improve your diet!</p>
+        <h1>Weekly Diet Tracker 🍽️</h1>
+        <p>Track your weekly eating habits and get useful tips on how to improve your diet! 🌿🍎</p>
 
         <form id="dietForm">
             <div class="week">
-                <label for="week1">Monday:</label>
+                <label for="week1">Monday 🍽️:</label>
                 <select id="week1">
-                    <option value="good">Good and Healthy</option>
-                    <option value="bad">Bad</option>
+                    <option value="good">Good and Healthy 💪</option>
+                    <option value="bad">Not so Good 😞</option>
                 </select>
             </div>
 
             <div class="week">
-                <label for="week2">Tuesday:</label>
+                <label for="week2">Tuesday 🍽️:</label>
                 <select id="week2">
-                    <option value="good">Good and Healthy</option>
-                    <option value="bad">Bad</option>
+                    <option value="good">Good and Healthy 💪</option>
+                    <option value="bad">Not so Good 😞</option>
                 </select>
             </div>
 
             <div class="week">
-                <label for="week3">Wednesday:</label>
+                <label for="week3">Wednesday 🍽️:</label>
                 <select id="week3">
-                    <option value="good">Good and Healthy</option>
-                    <option value="bad">Bad</option>
+                    <option value="good">Good and Healthy 💪</option>
+                    <option value="bad">Not so Good 😞</option>
                 </select>
             </div>
 
             <div class="week">
-                <label for="week4">Thursday:</label>
+                <label for="week4">Thursday 🍽️:</label>
                 <select id="week4">
-                    <option value="good">Good and Healthy</option>
-                    <option value="bad">Bad</option>
+                    <option value="good">Good and Healthy 💪</option>
+                    <option value="bad">Not so Good 😞</option>
                 </select>
             </div>
-
-            <div class="week">
-                <label for="week3">Friday:</label>
-                <select id="week3">
-                    <option value="good">Good and Healthy</option>
-                    <option value="bad">Bad</option>
-                </select>
 
             <button type="button" onclick="calculate()">Submit</button>
         </form>
 
         <div id="result" class="result"></div>
+
+        <!-- New Quiz and Test Links -->
+        <div style="text-align:center;">
+            <a href="https://medlineplus.gov/ency/quiz/000330_25.htm?quiz=1" class="quiz-btn">🍎 Take a Healthy Food Quiz!</a>
+            <br>
+            <a href="https://www.psychologytoday.com/intl/tests/health/healthy-lifestyle-test" class="health-test-btn">💪 How Healthy Are You? Find Out!</a>
+        </div>
     </div>
 
     <script>
@@ -183,31 +199,31 @@
 
             let resultText = '';
             if (goodCount === 4) {
-                resultText = 'Excellent! You are maintaining a very healthy diet. Keep it up!';
+                resultText = '🏆 Excellent! You are maintaining a very healthy diet. Keep it up!';
             } else if (goodCount === 3) {
-                resultText = 'Great job! You are eating healthy most of the time. Try to be consistent!';
+                resultText = '👏 Great job! You are eating healthy most of the time. Try to be consistent!';
             } else if (goodCount === 2) {
-                resultText = 'You are doing okay, but try to aim for more heary meals each week.';
+                resultText = '🙂 You are doing okay, but aim for more healthy meals each week.';
             } else if (goodCount === 1) {
-                resultText = 'You need to make more healthy choices. Consider planning your meals better.';
+                resultText = '😕 You need to make more healthy choices. Consider planning your meals better.';
             } else {
-                resultText = 'It seems like you are struggling to mainta a healthy diet. Try to incorporate more fruits, vegetables, and whole grains.';
+                resultText = '⚠️ It seems like you are struggling to maintain a healthy diet. Try to include more fruits, vegetables, and whole grains.';
             }
 
-            resultText += '<h2>Here are some tips for a healthier diet:</h2>';
+            resultText += '<h2>🍇 Here are some tips for a healthier diet:</h2>';
             resultText += '<ul>';
-            resultText += '<li>Drink plenty of water throughout the day.</li>';
-            resultText += '<li>Eat a variety of fruits and vegetables daily.</li>';
-            resultText += '<li>Avoid processed foods and sugary snacks.</li>';
-            resultText += '<li>Try to eat more home-cooked meals with whole ingredients.</li>';
+            resultText += '<li>💧 Drink plenty of water throughout the day.</li>';
+            resultText += '<li>🍓 Eat a variety of fruits and vegetables daily.</li>';
+            resultText += '<li>🚫 Avoid processed foods and sugary snacks.</li>';
+            resultText += '<li>🍽️ Try to eat more home-cooked meals with whole ingredients.</li>';
             resultText += '</ul>';
 
-            resultText += '<div class="fact-box"><h3>Diet Facts & Tips:</h3>';
+            resultText += '<div class="fact-box"><h3>🌿 Diet Facts & Tips:</h3>';
             resultText += '<ul>';
-            resultText += '<li>Balanced nutrition boosts energy and mental clarity.</li>';
-            resultText += '<li>High-fiber foods like fruits, vegetables, and whole grains aid digestion and promote heart health.</li>';
-            resultText += '<li>Consuming healthy fats (like avocado, nuts, and olive oil) supports brain function.</li>';
-            resultText += '<li>Try to avoid excessive intake of red meat and processed foods that are high in sodium and unhealthy fats.</li>';
+            resultText += '<li>🍎 Balanced nutrition boosts energy and mental clarity.</li>';
+            resultText += '<li>🍞 High-fiber foods like fruits, vegetables, and whole grains aid digestion and promote heart health.</li>';
+            resultText += '<li>🥑 Healthy fats (like avocado, nuts, and olive oil) support brain function.</li>';
+            resultText += '<li>🍔 Try to avoid excessive intake of red meat and processed foods high in sodium and unhealthy fats.</li>';
             resultText += '</ul></div>';
 
             document.getElementById('result').innerHTML = resultText;
