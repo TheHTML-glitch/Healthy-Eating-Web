@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Diet Tracker - Healthy Eating 🍎</title>
+    <title>Healthy Diet Tracker - Healthy Eating 🍎</title>
     <style>
         body {
-            font-family: 'Arial', monospace;https://images.immediate.co.uk/production/volatile/sites/28/2019/02/have-these-funny-baby-photo-trends-gone-too-far_154133-6fb0bb7.jpg'); /* Replace with your image URL */
+            font-family: 'Arial', monospace;
+            background-image: url('https://images.immediate.co.uk/production/volatile/sites/28/2019/02/have-these-funny-baby-photo-trends-gone-too-far_154133-6fb0bb7.jpg');
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -17,7 +18,7 @@
             height: 100vh;
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -170,7 +171,7 @@
                 </select>
             </div>
 
-             <div class="week">
+            <div class="week">
                 <label for="week5">Friday 🍽️:</label>
                 <select id="week5">
                     <option value="good">Good and Healthy 💪</option>
@@ -183,7 +184,6 @@
 
         <div id="result" class="result"></div>
 
-        <!-- New Quiz and Test Links -->
         <div style="text-align:center;">
             <a href="https://medlineplus.gov/ency/quiz/000330_25.htm?quiz=1" class="quiz-btn">🍎 Take a Healthy Food Quiz!</a>
             <br>
@@ -195,7 +195,7 @@
         function calculate() {
             let goodCount = 0;
             let badCount = 0;
-            for (let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 5; i++) { // Updated to include Friday
                 let week = document.getElementById('week' + i).value;
                 if (week === 'good') {
                     goodCount++;
@@ -206,7 +206,7 @@
 
             let resultText = '';
             if (goodCount === 5) {
-                resultText = '😮🏆 WOW! You are having a GREAT diet. Keep it up! Don't lose the streak!';
+                resultText = '😮🏆 WOW! You are having a GREAT diet. Keep it up! Don\'t lose the streak!';
             } else if (goodCount === 4) {
                 resultText = '🏆 Excellent! You are maintaining a very healthy diet. Keep it up! If so you will go MAX!';
             } else if (goodCount === 3) {
@@ -240,4 +240,4 @@
     </script>
 
 </body>
-</html
+</html>
